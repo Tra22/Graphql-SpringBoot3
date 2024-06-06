@@ -1,0 +1,32 @@
+type Query {
+    allStudents(paginationReq: PaginationReq!) :StudentContent
+    getStudents(studentId: Float!) :StudentDTO
+}
+
+type StudentContent {
+    pagination: Pagination
+    content:[StudentDTO]
+}
+input PaginationReq {
+    page: Int
+    size: Int
+}
+type StudentDTO {
+    id:Float
+    firstName:String
+    lastName:String
+    age:Int
+    isDeleted:Boolean
+    courses:[CourseDTO]
+}
+type Pagination {
+    page: Int
+    size: Int
+    totalPage: Float
+    totalElement: Float
+}
+
+type CourseDTO {
+    id:Float
+    name:String
+}

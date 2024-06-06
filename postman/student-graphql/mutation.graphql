@@ -1,0 +1,34 @@
+type Mutation{
+    createStudent(createStudentDTO : CreateStudentDTO):StudentDTO
+    updateStudent(studentId:Float!, updateStudentDTO : UpdateStudentDTO):StudentDTO
+    deleteStudent(studentId:Float!):String
+}
+
+input CreateStudentDTO{
+    firstName: String
+    lastName: String
+    age: Int
+    isDeleted: Boolean
+    courses: [Float!]
+}
+
+input UpdateStudentDTO{
+    id: Float
+    firstName: String
+    lastName: String
+    age: Int
+    isDeleted: Boolean
+    courses: [Float!]
+}
+type StudentDTO {
+    id:Float
+    firstName:String
+    lastName:String
+    age:Int
+    isDeleted:Boolean
+    courses:[CourseDTO]
+}
+type CourseDTO {
+    id:Float
+    name:String
+}
